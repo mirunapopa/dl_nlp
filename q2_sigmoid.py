@@ -36,8 +36,11 @@ def sigmoid_grad(s):
     Return:
     ds -- Your computed gradient.
     """
+
+    x = sigmoid(s)
+    y = 1-sigmoid(s)
+    ds  = np.multiply(x,y)
     
-    ds = sigmoid(s)*(1-sigmoid(s))
     ### YOUR CODE HERE
     ### END YOUR CODE
 
@@ -52,7 +55,7 @@ def test_sigmoid_basic():
     print "Running basic tests..."
     x = np.array([[1, 2], [-1, -2]])
     f = sigmoid(x)
-    g = sigmoid_grad(f)
+    g = sigmoid_grad(x)
     print f
     f_ans = np.array([
         [0.73105858, 0.88079708],
